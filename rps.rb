@@ -23,20 +23,20 @@ loop do
     puts "---------------------------------------------"
     choice = gets.chomp.downcase
 
-    choice = case choice
-                when "r"
-                  "rock"
-                when "p"
-                  "paper"
-                when "sc"
-                  "scissors"
-                when "l"
-                  "lizard"
-                when "sp"
-                  "spock"
-                else
-                  "INVALID"
-                end
+    choice =  case choice
+              when "r"
+                "rock"
+              when "p"
+                "paper"
+              when "sc"
+                "scissors"
+              when "l"
+                "lizard"
+              when "sp"
+                "spock"
+              else
+                "INVALID"
+              end
 
     if VALID_CHOICES.include?(choice)
       break
@@ -80,16 +80,16 @@ loop do
   prompt "Player score: #{player_score}"
   prompt "Computer score: #{computer_score}\n\n"
 
-if game_over? player_score, computer_score
-  loop do
-    puts "Would you like to play again?"
-    puts "Y) Yes    |    N) No"
-    play_again = gets.chomp.downcase
-    break if %w(y n).include?(play_again)
+  if game_over? player_score, computer_score
+    loop do
+      puts "Would you like to play again?"
+      puts "Y) Yes    |    N) No"
+      play_again = gets.chomp.downcase
+      break if %w(y n).include?(play_again)
+    end
+    player_score = 0
+    computer_score = 0
   end
-  player_score = 0
-  computer_score = 0
-end
 
   break if play_again == "n"
 end
