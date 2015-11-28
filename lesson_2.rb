@@ -3,14 +3,13 @@
 # asks for the type of operation to perform: add, subtract, multiple or divide
 # displays the result
 
-keep_going = "y"
 
 def prompt
   print ">> "
 end
 
 # Validate user input
-def check_num(num_to_check)
+def check_num num_to_check
   true if num_to_check.to_f.to_s == num_to_check || num_to_check.to_i.to_s == num_to_check
 end
 
@@ -19,14 +18,14 @@ begin
     puts "Please give me the first number"
     print ">> "
     first_num = gets.chomp
-  end until check_num(first_num)
+  end until check_num first_num
   puts "The first number is: #{first_num}"
   
   begin
     puts "Please give me the second number"
     prompt
     second_num = gets.chomp
-  end until check_num(second_num)
+  end until check_num second_num
 
   puts "The second number is #{second_num}" 
   puts "What would you like to do?"
@@ -74,7 +73,7 @@ begin
     puts "N) No"
     prompt
     keep_going = gets.chomp.upcase
-  end until ["Y", "N"].include?(keep_going)
+  end until ["Y", "N"].include? keep_going
 
 end until keep_going == "N"
 
